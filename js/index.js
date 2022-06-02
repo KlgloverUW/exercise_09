@@ -26,31 +26,29 @@ h1Element.text("Interactive Pet Viewer");
 let footerElement = $('footer');
 footerElement.html('<small>All images from <a href="https://unsplash.com/">unsplash.com</a></small>');
 
-/* #7 attempting to set cats display to none but not working*/
-$('div.#btnShowDogs').on('click', function() {
-    $('div.#cats').hide();
-    $('div.#btnShowDogs').addClass('active');
-});
+/* #7 set cats display to none*/
+$('#cats').css("display", "none")
 
-/* #8 trying to add interactivity to buttons group but not working*/
-let buttonGroup = $('div.btn-group');
-buttonGroup.on('click', function() {
-    $('div.#cats').toggle();
-    $('div.#dogs').toggle();
-    buttonGroup.click(function() {
-        buttonGroup.toggleClass('active'); 
-});
+/* active class to dogs*/
+$('#btnShowDogs').addClass('active')
+
+/* #8 interactivity to buttons*/
+$('div.btn-group').on('click', function() {
+    $("#cats", "#dogs").toggle();
+    $("#cats", "#dogs").toggleClass('active');
+})
 
 /* #9 trying to make pointers hover but not working */
 $('#images').hover(function() {
     $('#images').css('cursor', 'pointer');
 });
-
-
 /* #12 trying to make images open the modal but not working */
 function modalImages() {
     imgs.attr("data-bs-toggle-modal");
     imgs.attr("data-bs-target");    
 };
 
-/* #13 specify src alt for the images */
+/* #13 trying to specify src alt for the images but not working*/
+let imageClicked = $(event.relatedTarget)
+let srcAttr = imageClicked.attr('src', src)
+let altAttr = imageClicked.attr('alt', alt)
